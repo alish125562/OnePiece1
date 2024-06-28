@@ -2,34 +2,205 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" href="file.png" type="image/x-icon" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Contact-form</title>
+    <title>Contact US</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-<style>
-  body{
-	background-image: url("op.jpg");
-	height: 500px;
-	background-size: cover;
-}
-</style>
+  <style>
+    body {
+      background-image: url("op.jpg");
+      height: 100vh;
+      background-size: cover;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .Contact-Form {
+      padding: 10px;
+      border-radius: 10px;
+      color: white;
+      text-align: center;
+    }
+
+    .Contact-Form h1,
+    .Contact-Form h3 {
+      margin: 10;
+    }
+
+    .Contact-Form h1 {
+      margin-bottom: 10px;
+    }
+
+    .Contact-Form h3 {
+      margin-bottom: 20px;
+    }
+
+    .input-fields,
+    .msg {
+      margin: 10px 0;
+    }
+
+    .input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: orange;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
   <body>
-    <div class="full">
-      <div class="Contact-Form">
-        <h1>CONTACT US</h1>
-        <h3>LETS FIND THE ONEPIECE</h3>
-        <div class="input-fields">
-          <input type="text" class="input" placeholder="Your Name " required />
-          <input type="text" class="input" placeholder="Your Emaill "  required />
-          <input type="text" class="input" placeholder="Your Phone " required/>
-        </div>
-        <div class="msg">
-          <textarea placeholder="Message " required></textarea>
-        </div>
-        <div>
-          <button >Send message</button>
+    <nav>
+      <img src="nice.png" class="logo" style="padding-right: 50px" />
+
+      <ul>
+        <li class="M"><a href="/index.html">ABOUT</a></li>
+        <li class="A"><a href="/gallery.html">CREW</a></li>
+        <li class="M">
+          <a href="https://www.viz.com/shonenjump/chapters/one-piece">MANGA</a>
+        </li>
+        <li class="LA">
+          <a href="https://www.netflix.com/np/title/80217863">LIVE-ACTION</a>
+        </li>
+        <li class="btn">
+          <a href="https://www.crunchyroll.com/series/GRMG8ZQZR/one-piece"
+            >ANIME</a
+          >
+        </li>
+        <li class="C"><a href="/Contact-form.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+    <form id="contactForm">
+      <div class="full">
+        <div class="Contact-Form">
+          <h1>CONTACT US</h1>
+          <h3>LETS FIND THE ONEPIECE</h3>
+          <div class="input-fields">
+            <input
+              type="text"
+              class="input"
+              id="name"
+              placeholder="Your Name "
+              required
+            />
+            <input
+              type="email"
+              class="input"
+              id="email"
+              placeholder="Your Email "
+              required
+            />
+            <input
+              type="text"
+              class="input"
+              id="phone"
+              placeholder="Your Phone "
+              required
+            />
+          </div>
+          <div class="msg">
+            <textarea id="message" placeholder="Message " required></textarea>
+          </div>
+          <div>
+            <button type="submit">Send message</button>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent form submission
+
+          // Get form field values
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const message = document.getElementById("message").value.trim();
+
+          // Validate the form fields
+          if (name === "") {
+            alert("Please enter your name.");
+            return;
+          }
+
+          if (email === "") {
+            alert("Please enter your email.");
+            return;
+          }
+
+          if (!validateEmail(email)) {
+            alert("Please enter a valid email address.");
+            return;
+          }
+
+          if (phone === "") {
+            alert("Please enter your phone number.");
+            return;
+          }
+
+          if (!validatePhone(phone)) {
+            alert("Please enter a valid phone number.");
+            return;
+          }
+
+          if (message === "") {
+            alert("Please enter your message.");
+            return;
+          }
+
+          alert("Form submitted successfully!");
+        });
+
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+
+      function validatePhone(phone) {
+        const re = /^\d{10}$/;
+        return re.test(phone);
+      }
+    </script>
   </body>
 </html>

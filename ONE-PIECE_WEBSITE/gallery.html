@@ -1,12 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="file.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHOTOS</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="file.png" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CREW</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <nav>
+        <img src="nice.png" class="logo" style="padding-right: 50px">
+        <ul>
+            <li class="M"><a href="/index.html">ABOUT</a></li>
+            <li class="A"><a href="/gallery.html">CREW</a></li>
+            <li class="M"><a href="https://www.viz.com/shonenjump/chapters/one-piece">MANGA</a></li>
+            <li class="LA"><a href="https://www.netflix.com/np/title/80217863">LIVE-ACTION</a></li>
+            <li class="btn"><a href="https://www.crunchyroll.com/series/GRMG8ZQZR/one-piece">ANIME</a></li>
+            <li class="C"><a href="/Contact-form.html">CONTACT US</a></li>
+            
+        </ul>
+    </nav>
+    <div id="main">
+      <h1>STRAW <span>HATS</span></h1>
+      <div id="wrapper">
+        <div>
+          <button class="active" id="prev">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+        <div id="image-container">
+          <div id="straw">
+            <div class="image-wrapper">
+              <img src="luffy.jpeg" alt="MONKEY D. LUFFY" />
+              <p>MONKEY D. LUFFY</p>
+            </div>
+            <div class="image-wrapper">
+              <img src="zoro.jpeg" alt="RORONOA ZORO" />
+              <p>RORONOA ZORO</p>
+            </div>
+            <div class="image-wrapper">
+              <img src="nami.jpg" alt="CAT BURGLAR NAMI" />
+              <p>CAT BURGLAR NAMI</p>
+            </div>
+            <div class="image-wrapper">
+              <img src="ussop.jpeg" alt="GOD USSOP" />
+              <p>GOD USSOP</p>
+            </div>
+            <div class="image-wrapper">
+              <img src="Sanji.jpeg" alt="VINSMOKE SANJI" />
+              <p>VINSMOKE SANJI</p>
+            </div>
+            <div class="image-wrapper">
+              <img src="chopper.jpg" alt="TONY TONY CHOPPER" />
+              <p>TONY TONY CHOPPER</p>
+            </div>
+            <div class="image-wrapper">
+              <img src="robin.jpg" alt="NICO ROBIN" />
+              <p>NICO ROBIN</p>
+            </div>
+            <div class="image-wrapper">
+              <img src="franky.jpeg" alt="CYBORG FRANKY" />
+              <p>CYBORG FRANKY</p>
+            </div>
+            <div class="image-wrapper">
+              <img src="brook.jpeg" alt="SOUL KING BROOK" />
+              <p>SOUL KING BROOK</p>
+            </div>
+            <div class="image-wrapper">
+              <img src="Jinbei.jpg" alt="FIRST SON OF SEA JINBIE" />
+              <p>FIRST SON OF SEA JINBIE</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="active" id="next">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const wrapper = document.querySelector("#wrapper");
+        const straw = document.querySelector("#straw");
+        const images = document.querySelectorAll("#straw .image-wrapper");
+        const previous = document.querySelector("#prev");
+        const next = document.querySelector("#next");
+
+        images.forEach((slide, index) => {
+          slide.style.left = `${index * 100}%`;
+        });
+
+        let counter = 0;
+
+        const slideImage = () => {
+          images.forEach((e) => {
+            e.style.transform = `translateX(-${counter * 100}%)`;
+          });
+        };
+
+        const prev = () => {
+          if (counter > 0) {
+            counter--;
+            slideImage();
+          }
+        };
+
+        const nextSlide = () => {
+          if (counter < images.length - 1) {
+            counter++;
+            slideImage();
+          }
+        };
+
+        previous.addEventListener("click", prev);
+        next.addEventListener("click", nextSlide);
+
+        images.forEach((imageWrapper) => {
+          const image = imageWrapper.querySelector("img");
+          image.addEventListener("click", () => {
+            window.open(
+              image.src,
+              "_blank",
+              "width=screen.width,height=screen.height,fullscreen=yes"
+            );
+          });
+        });
+      });
+    </script>
+  </body>
 </html>

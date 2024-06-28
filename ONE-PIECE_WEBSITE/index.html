@@ -6,40 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ONE PIECE</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="hero">
-        <video autoplay loop muted class="videoo">
+        <video id="background-video" autoplay loop muted class="videoo">
             <source src="Vid.mp4" type="video/mp4">
         </video>
-        <audio loop autoplay>
-            <source src="audio.mp3" type="audio/mpeg" >
+        <audio id="background-audio" loop autoplay>
+            <source src="audio.mp3" type="audio/mpeg">
         </audio>
         <nav>
-            <div class="container">
-                <img src="nice.png" class="logo" style="padding-right: 50px">
-            </div>            
+            <img src="nice.png" class="logo" style="padding-right: 50px">
             <ul>
-                 
+                <li class="M"><a href="#bb">ABOUT</a></li>
+                <li class="A"><a href="/gallery.html">CREW</a></li>
                 <li class="M"><a href="https://www.viz.com/shonenjump/chapters/one-piece">MANGA</a></li>
                 <li class="LA"><a href="https://www.netflix.com/np/title/80217863">LIVE-ACTION</a></li>
                 <li class="btn"><a href="https://www.crunchyroll.com/series/GRMG8ZQZR/one-piece">ANIME</a></li>
+                <li class="C"><a href="/Contact-form.html">CONTACT US</a></li>
+                <li class="music-toggle"><a href="javascript:void(0);" onclick="toggleAudio()"><i id="audio-icon" class="fa-solid fa-volume-high"></i></a></li>
             </ul>
         </nav>
-        
+    </div>
+    <div class="SH">
+        <div class="tit" id="bb"><h1>ONE PIECE</h1></div>
         <div class="content">
             <div class="main-text">
                 <h6># BEST CREATION OF ALL TIME<br>Written by Eiichiro Oda</h6>
-                <h1>ONE PIECE</h1>
-                <p>Wealth, Fame, Power..Gold Roger, King of the pirates,<br>
-                   attained everything this world has to offer. The words<br>
-                   he uttered just before his death drove people to the<br>
-                   seas. And so men head for the Grand Line in pursuit of<br>
-                   their dreams! Then the world entered the Great Pirates Era!
-                </p>      
+                <p>Wealth, Fame, Power...Gold Roger, King of the pirates, attained everything this world has to offer. The words he uttered just before his death drove people to the seas. And so men head for the Grand Line in pursuit of their dreams! Then the world entered the Great Pirates Era!</p>
             </div>
-        </div> 
-         
+        </div>
     </div>
-</body>    
+    <footer>
+        <div class="footer-content">
+            <h3>ONE PIECE</h3>
+            <p>Your journey to the Grand Line starts here!</p>
+            <ul class="socials">
+                <li><a href="https://www.tiktok.com/@onepiece.staff.official"><i class="fab fa-tiktok"></i></a></li>
+                <li><a href="https://x.com/Eiichiro_Staff"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/onepiece_staff/"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://youtube.com/@onepieceofficial?si=Rmbj7NIu9b41dBj6"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="mailto:alish123gautam@gmail.com"><i class="fa-solid fa-envelope"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ONE PIECE. All rights reserved. | Designed by ALISH THE GREAT</p>
+        </div>
+    </footer>
+    <script>
+        function toggleAudio() {
+            var audio = document.getElementById('background-audio');
+            var video = document.getElementById('background-video');
+            var audioIcon = document.getElementById('audio-icon');
+            
+            if (audio.paused) {
+                audio.currentTime = video.currentTime;
+                audio.play();
+                audioIcon.className = 'fa-solid fa-volume-high';
+            } else {
+                audio.pause();
+                audioIcon.className = 'fa-solid fa-volume-xmark';
+            }
+        }
+    </script>
+</body>
 </html>
